@@ -3,6 +3,10 @@
 --
 -- See the kickstart.nvim README for more information
 
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = false
+
 vim.g.termguicolors = true
 vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<cr>', { silent = true, noremap = true })
 
@@ -44,6 +48,16 @@ return {
           move_wraps_at_ends = false, -- whether or not the move command "wraps" at the first or last position
         },
       }
+    end,
+  },
+  {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+    config = function()
+      require('ibl').setup {}
     end,
   },
 }
