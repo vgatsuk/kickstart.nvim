@@ -1,3 +1,4 @@
+-- test test
 local function getTelescopeOpts(state, path)
   return {
     cwd = path,
@@ -185,19 +186,19 @@ return {
             nowait = true,
           },
           mappings = {
-            -- ['e'] = function()
-            --   vim.api.nvim_exec2('Neotree focus filesystem left', { output = true })
-            -- end,
-            -- ['b'] = function()
-            --   vim.api.nvim_exec2('Neotree focus buffers left', { output = true })
-            -- end,
-            -- ['g'] = function()
-            --   vim.api.nvim_exec2('Neotree focus git_status left', { output = true })
-            -- end,
-            ['<space>'] = {
-              'toggle_node',
-              nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
-            },
+            ['<leader>e'] = function()
+              vim.api.nvim_exec2('Neotree focus filesystem left', { output = true })
+            end,
+            ['<leader>b'] = function()
+              vim.api.nvim_exec2('Neotree focus buffers left', { output = true })
+            end,
+            ['<leader>g'] = function()
+              vim.api.nvim_exec2('Neotree focus git_status left', { output = true })
+            end,
+            -- ['<space>'] = {
+            --   'toggle_node',
+            --   nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+            -- },
             ['<2-LeftMouse>'] = 'open',
             ['<cr>'] = 'open',
             ['<esc>'] = 'cancel', -- close preview or floating neo-tree window

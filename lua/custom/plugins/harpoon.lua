@@ -14,7 +14,6 @@ return {
         },
       }
       local harpoon = require 'harpoon'
-      local bufferline_groups = require 'bufferline.groups'
       local bufferline_ui = require 'bufferline.ui'
       -- set up all the keymappings
       vim.keymap.set('n', '<leader>hm', function()
