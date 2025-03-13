@@ -10,25 +10,24 @@ return {
       require('bufferline').setup {
         options = {
           numbers = function(number_opts)
-            local harpoon = require 'harpoon'
-            local buf_name = vim.api.nvim_buf_get_name(number_opts.id)
-            local harpoon_mark = harpoon:list():get_by_value(buf_name)
-            local logger = require 'harpoon.logger'
-            -- logger.enable()
-            -- logger.log(harpoon.list().get(1))
-            if harpoon_mark ~= nil then
-              return string.format('%s(%s)', number_opts.id, harpoon_mark)
-            else
-              return string.format('(%s)', number_opts.id)
+            local harpoon_list = require('harpoon'):list()
+            local buffer_filepath = vim.api.nvim_buf_get_name(number_opts.id)
+            local harpoon_key = vim.uv.cwd()
+            for i, item in ipairs(harpoon_list.items) do
+              local value = item.value
+              if string.sub(item.value, 1, 1) ~= '/' then
+                value = harpoon_key .. '/' .. item.value
+              end
+
+              if value == buffer_filepath then
+                return string.format('%d(⥤ %d)', number_opts.ordinal, i)
+              end
             end
-            -- print 'DAFUQ'
-            -- return string.format('%s.%s)--', number_opts.id, harpoon_mark)
-            -- return string.format('%s.%s)--', number_opts.id, harpoon_mark)
-            -- return harpoon_mark
+            return string.format('%d', number_opts.ordinal)
           end,
           offsets = {
             {
-              filetype = 'NvimTree',
+              filetype = 'neo-tree',
               text = 'File Explorer',
               text_align = 'left',
               separator = true,
@@ -42,6 +41,19 @@ return {
           move_wraps_at_ends = false, -- whether or not the move command "wraps" at the first or last position
         },
       }
+      -- test
+      local bufferline = require 'bufferline'
+      for i = 1, 9 do
+        vim.keymap.set('n', string.format('<leader>b%d', i), function()
+          bufferline.go_to(i, true)
+        end, { desc = string.format('Bufferline marker %d', i) })
+      end
+      vim.keymap.set('n', '<leader>bp', function()
+        bufferline.cycle(-1)
+      end, { desc = 'Bufferline previous buffer' })
+      vim.keymap.set('n', '<leader>bn', function()
+        bufferline.cycle(1)
+      end, { desc = 'Bufferline next buffer' })
     end,
   },
 }

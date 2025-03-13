@@ -11,19 +11,10 @@ vim.opt.foldenable = false
 vim.g.termguicolors = true
 -- vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<cr>', { silent = true, noremap = true })
 vim.api.nvim_set_keymap('n', '<Leader>e', ':Neotree action=focus source=filesystem position=left toggle=true<cr>', { silent = true, noremap = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>b', ':Neotree action=focus source=buffers position=left toggle=true<cr>', { silent = true, noremap = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>g', ':Neotree action=focus source=github position=left toggle=true<cr>', { silent = true, noremap = true })
 
 return {
-  --  {
-  --    'nvim-tree/nvim-tree.lua',
-  --    version = '*',
-  --    lazy = false,
-  --    dependencies = {
-  --      'nvim-tree/nvim-web-devicons',
-  --    },
-  --    config = function()
-  --      require('nvim-tree').setup {}
-  --    end,
-  --  },
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
