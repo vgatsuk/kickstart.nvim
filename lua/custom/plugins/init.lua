@@ -14,6 +14,9 @@ vim.api.nvim_set_keymap('n', '<Leader>e', ':Neotree action=focus source=filesyst
 -- vim.api.nvim_set_keymap('n', '<Leader>b', ':Neotree action=focus source=buffers position=left toggle=true<cr>', { silent = true, noremap = true })
 -- vim.api.nvim_set_keymap('n', '<Leader>g', ':Neotree action=focus source=github position=left toggle=true<cr>', { silent = true, noremap = true })
 
+vim.wo.relativenumber = true
+vim.wo.number = true
+
 return {
   {
     'lukas-reineke/indent-blankline.nvim',
