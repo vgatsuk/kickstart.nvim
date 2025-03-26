@@ -261,7 +261,7 @@ require('lazy').setup({
           vim.keymap.set(mode, l, r, opts)
         end
 
-        map('n', '<leader>gb', gitsigns.blame, { desc = 'Open [g]it [b]lame window' })
+        -- map('n', '<leader>gb', gitsigns.blame, { desc = 'Open [g]it [b]lame window' })
         vim.api.nvim_set_hl(0, 'GitSignsAdd', { fg = '#00AA00' })
         vim.api.nvim_set_hl(0, 'GitSignsDelete', { fg = '#AA0000' })
         vim.api.nvim_set_hl(0, 'GitSignsChange', { fg = '#AAAA00' })
