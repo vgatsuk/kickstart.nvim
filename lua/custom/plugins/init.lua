@@ -23,6 +23,10 @@ vim.api.nvim_set_keymap('n', '<leader>gb', ':Gitsigns blame<cr>', { silent = tru
 vim.api.nvim_set_keymap('n', '<leader>gq', ':Gitsigns setqflist target=all<cr>', { silent = true, noremap = true, desc = '[G]itsigns set[q]flist target=all' })
 -- vim.api.nvim_set_keymap('n', '<Leader>g', ':Neotree action=focus source=github position=left toggle=true<cr>', { silent = true, noremap = true })
 
+vim.keymap.set('n', '<leader>dw', function()
+  vim.diagnostic.open_float()
+end, { silent = true, noremap = true, desc = 'Open [d]iagnostic [w]indow' })
+
 vim.wo.relativenumber = true
 vim.wo.number = true
 
