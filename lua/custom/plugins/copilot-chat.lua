@@ -20,6 +20,8 @@ return {
       { '<leader>ait', ':CopilotChatTests<CR>', mode = 'v', desc = 'Copilot Generate [T]ests' },
       { '<leader>aim', ':CopilotChatCommit<CR>', mode = 'n', desc = 'Copilot Generate Commit [M]essage' },
       { '<leader>ais', ':CopilotChatCommit<CR>', mode = 'v', desc = 'Copilot Generate [S]election Commit Message' },
+      { '<leader>aioff', ':Copilot disable<CR>', mode = 'n', desc = 'Turn Copilot [off]' },
+      { '<leader>aion', ':Copilot enable<CR>', mode = 'n', desc = 'Turn Copilot [on]' },
     },
   },
 }
