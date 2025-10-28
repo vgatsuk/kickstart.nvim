@@ -30,6 +30,21 @@ end, { silent = true, noremap = true, desc = 'Open [d]iagnostic [w]indow' })
 vim.wo.relativenumber = true
 vim.wo.number = true
 
+-- remap copilot autocomplete from tab to <C-y>
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap('i', '<C-y>', 'copilot#Accept("<CR>")', { silent = true, noremap = true, expr = true, desc = 'Copilot accept' })
+
+-- Set up tabstop to 4 for golang specifically
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'go',
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.expandtab = false
+  end,
+})
+
 return {
   {
     'lukas-reineke/indent-blankline.nvim',
