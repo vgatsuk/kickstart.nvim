@@ -22,6 +22,9 @@ vim.api.nvim_set_keymap('n', '<leader>gp', ':Gitsigns preview_hunk_inline<cr>', 
 vim.api.nvim_set_keymap('n', '<leader>gb', ':Gitsigns blame<cr>', { silent = true, noremap = true, desc = '[G]itsigns [b]lame' })
 vim.api.nvim_set_keymap('n', '<leader>gq', ':Gitsigns setqflist target=all<cr>', { silent = true, noremap = true, desc = '[G]itsigns set[q]flist target=all' })
 -- vim.api.nvim_set_keymap('n', '<Leader>g', ':Neotree action=focus source=github position=left toggle=true<cr>', { silent = true, noremap = true })
+-- Copilot setup
+vim.api.nvim_set_keymap('i', '<C-s>', 'copilot#Accept("<CR>")', { expr = true, noremap = true, silent = true })
+vim.g.copilot_no_tab_map = true
 
 vim.keymap.set('n', '<leader>dw', function()
   vim.diagnostic.open_float()
